@@ -1,0 +1,938 @@
+@import "../../themes/variable";
+@import "../../base/components/components";
+.header {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  animation: fadeIn 0.3s;
+  .container {
+    .navbar {
+      padding: 0 5px 0 !important;
+      background-color: $bg-transparent !important;
+      height: 80px;
+      .navbar-toggler {
+      }
+      .navbar-toggler-icon {
+      }
+      .navbar-brand {
+        img {
+          width: 80px;
+        }
+      }
+      .navbar-collapse {
+        .navbar-nav {
+          margin-left: 22%;
+          margin-right: 0 !important;
+          .nav-item {
+            .nav-link {
+              padding-right: 43px;
+              @include text($text-s, $text-semibold, $text-c1-dark);
+              &:hover {
+                color: $text-c1-pink;
+              }
+            }
+            .nav-circle {
+              position: relative;
+              &::after {
+                content: "";
+                position: absolute;
+                width: 9px;
+                height: 9px;
+                border-radius: 50%;
+                background-color: $bg-pink;
+                top: 57px;
+                left: 25%;
+                transition: 0.3s;
+              }
+              &:hover::after {
+                transform: scale(1.2, 1.2);
+              }
+            }
+          }
+        }
+        .form-inline {
+          overflow: hidden;
+          .nav-phone {
+            @extend .btn;
+            position: relative;
+            line-height: 1;
+            margin-left: 14px;
+            overflow: hidden;
+            z-index: 1;
+            &::before {
+              content: "";
+              position: absolute;
+              background-color: $bg-light;
+              border-radius: $br-button;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              transform: scale(0.7, 0);
+              transition: all 0.3s ease;
+            }
+            &:hover {
+              color: $text-c1-pink;
+            }
+            &:hover::before {
+              z-index: -1;
+              transform: scale(1, 1);
+            }
+          }
+          .nav-socials {
+            margin-left: 7px;
+            a {
+              @include text($text-xs, $text-regular, $text-c1-dark);
+              margin-left: 7px;
+              &:hover {
+                color: $text-c1-pink;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.about {
+  position: relative;
+  width: 100%;
+  padding-bottom: 60px;
+  .container {
+    .about-content {
+      background-color: $bg-transparent;
+      .about-desc {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        padding-top: 63px;
+        .about-left {
+          width: 50%;
+          opacity: 0;
+          animation: fadeInLeft 0.3s linear 0.2s;
+          animation-fill-mode: forwards;
+          h6 {
+            font-size: 20px;
+            color: $text-c1-pink;
+          }
+          h1 {
+            font-size: 65px;
+            font-weight: 700;
+            color: $text-c1-dark;
+          }
+        }
+        .about-right {
+          width: 50%;
+          opacity: 0;
+          animation: fadeIn 0.5s linear 0.5s;
+          animation-fill-mode: forwards;
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .bg-top {
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        // z-index: -1;
+        img {
+          width: 100%;
+        }
+      }
+      .bg-bottom {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.teachers {
+  position: relative;
+  padding-top: 30px;
+  .container {
+    position: relative;
+    z-index: 3;
+    background-color: $bg-transparent;
+    .teachers-card {
+      width: 100%;
+      background-color: $bg-transparent;
+      .card-top {
+        .teacher-1 {
+          width: calc(100% / 4);
+          padding-right: 30px;
+          border-radius: 5px;
+          .teacher-all {
+            transition: 0.3s;
+            &:hover {
+              box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.2);
+              @include br-1($br-card, $br-card, $br-card, $br-card);
+            }
+            .teacher-img {
+              @include br-1($br-card, $br-card, $br-none, $br-none);
+              overflow: hidden;
+              img {
+                transform: scale3d(1, 1, 1);
+                width: 100%;
+                transition: 0.5s;
+                &:hover {
+                  transform: scale3d(1.05, 1.05, 1.05);
+                }
+              }
+            }
+            .teacher-info {
+              background-color: $bg-light;
+              text-align: center;
+              padding: 30px;
+              @include br-1($br-none, $br-none, $br-card, $br-card);
+              p {
+                @include text($text-xxs, $text-semibold, $text-c1-pink);
+                margin-bottom: 6px;
+                line-height: 13px;
+              }
+              h4 {
+                @include text($text-l, $text-bold, $text-c1-dark);
+                margin-bottom: 15px;
+              }
+              span {
+                font-size: $text-s-2;
+                line-height: 22px;
+              }
+            }
+          }
+        }
+        .teacher-2 {
+          width: calc(100% / 4);
+          padding: 0 20px 0 10px;
+          .teacher-all {
+            transition: 0.3s;
+            &:hover {
+              box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.2);
+              @include br-1($br-card, $br-card, $br-card, $br-card);
+            }
+            .teacher-img {
+              @include br-1($br-card, $br-card, $br-none, $br-none);
+              overflow: hidden;
+              img {
+                transform: scale3d(1, 1, 1);
+                width: 100%;
+                transition: 0.5s;
+                &:hover {
+                  transform: scale3d(1.05, 1.05, 1.05);
+                }
+              }
+            }
+            .teacher-info {
+              background-color: $bg-light;
+              text-align: center;
+              padding: 30px;
+              @include br-1($br-none, $br-none, $br-card, $br-card);
+              p {
+                @include text($text-xxs, $text-semibold, $text-c1-pink);
+                margin-bottom: 6px;
+                line-height: 13px;
+              }
+              h4 {
+                @include text($text-l, $text-bold, $text-c1-dark);
+                margin-bottom: 15px;
+              }
+              span {
+                font-size: $text-s-2;
+                line-height: 22px;
+              }
+            }
+          }
+        }
+        .teacher-3 {
+          width: calc(100% / 4);
+          padding: 0 10px 0 20px;
+          .teacher-all {
+            transition: 0.3s;
+            &:hover {
+              box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.2);
+              @include br-1($br-card, $br-card, $br-card, $br-card);
+            }
+            .teacher-img {
+              @include br-1($br-card, $br-card, $br-none, $br-none);
+              overflow: hidden;
+              img {
+                transform: scale3d(1, 1, 1);
+                width: 100%;
+                transition: 0.5s;
+                &:hover {
+                  transform: scale3d(1.05, 1.05, 1.05);
+                }
+              }
+            }
+            .teacher-info {
+              background-color: $bg-light;
+              text-align: center;
+              padding: 30px;
+              @include br-1($br-none, $br-none, $br-card, $br-card);
+              p {
+                @include text($text-xxs, $text-semibold, $text-c1-pink);
+                margin-bottom: 6px;
+                line-height: 13px;
+              }
+              h4 {
+                @include text($text-l, $text-bold, $text-c1-dark);
+                margin-bottom: 15px;
+              }
+              span {
+                font-size: $text-s-2;
+                line-height: 22px;
+              }
+            }
+          }
+        }
+        .teacher-4 {
+          width: calc(100% / 4);
+          padding-left: 30px;
+          .teacher-all {
+            transition: 0.3s;
+            &:hover {
+              box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.2);
+              @include br-1($br-card, $br-card, $br-card, $br-card);
+            }
+            .teacher-img {
+              @include br-1($br-card, $br-card, $br-none, $br-none);
+              overflow: hidden;
+              img {
+                transform: scale3d(1, 1, 1);
+                width: 100%;
+                transition: 0.5s;
+                &:hover {
+                  transform: scale3d(1.05, 1.05, 1.05);
+                }
+              }
+            }
+            .teacher-info {
+              background-color: $bg-light;
+              text-align: center;
+              padding: 30px;
+              @include br-1($br-none, $br-none, $br-card, $br-card);
+              p {
+                @include text($text-xxs, $text-semibold, $text-c1-pink);
+                margin-bottom: 6px;
+                line-height: 13px;
+              }
+              h4 {
+                @include text($text-l, $text-bold, $text-c1-dark);
+                margin-bottom: 15px;
+              }
+              span {
+                font-size: $text-s-2;
+                line-height: 22px;
+              }
+            }
+          }
+        }
+        @for $i from 0 to 4 {
+          .teacher-#{$i + 1} {
+            animation-delay: 0.3s * $i;
+          }
+        }
+      }
+      .card-bottom {
+        .teacher-1 {
+          width: calc(100% / 4);
+          padding: 40px 30px 0 0;
+          .teacher-all {
+            transition: 0.3s;
+            &:hover {
+              box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.2);
+              @include br-1($br-card, $br-card, $br-card, $br-card);
+            }
+            .teacher-img {
+              @include br-1($br-card, $br-card, $br-none, $br-none);
+              overflow: hidden;
+              img {
+                transform: scale3d(1, 1, 1);
+                width: 100%;
+                transition: 0.5s;
+                &:hover {
+                  transform: scale3d(1.05, 1.05, 1.05);
+                }
+              }
+            }
+            .teacher-info {
+              background-color: $bg-light;
+              text-align: center;
+              padding: 30px;
+              @include br-1($br-none, $br-none, $br-card, $br-card);
+              p {
+                @include text($text-xxs, $text-semibold, $text-c1-pink);
+                margin-bottom: 6px;
+                line-height: 13px;
+              }
+              h4 {
+                @include text($text-l, $text-bold, $text-c1-dark);
+                margin-bottom: 15px;
+              }
+              span {
+                font-size: $text-s-2;
+                line-height: 22px;
+              }
+            }
+          }
+        }
+        .teacher-2 {
+          width: calc(100% / 4);
+          padding: 40px 20px 0 10px;
+          .teacher-all {
+            transition: 0.3s;
+            &:hover {
+              box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.2);
+              @include br-1($br-card, $br-card, $br-card, $br-card);
+            }
+            .teacher-img {
+              @include br-1($br-card, $br-card, $br-none, $br-none);
+              overflow: hidden;
+              img {
+                transform: scale3d(1, 1, 1);
+                width: 100%;
+                transition: 0.5s;
+                &:hover {
+                  transform: scale3d(1.05, 1.05, 1.05);
+                }
+              }
+            }
+            .teacher-info {
+              background-color: $bg-light;
+              text-align: center;
+              padding: 30px;
+              @include br-1($br-none, $br-none, $br-card, $br-card);
+              p {
+                @include text($text-xxs, $text-semibold, $text-c1-pink);
+                margin-bottom: 6px;
+                line-height: 13px;
+              }
+              h4 {
+                @include text($text-l, $text-bold, $text-c1-dark);
+                margin-bottom: 15px;
+              }
+              span {
+                font-size: $text-s-2;
+                line-height: 22px;
+              }
+            }
+          }
+        }
+        .teacher-3 {
+          width: calc(100% / 4);
+          padding: 40px 10px 0 20px;
+          .teacher-all {
+            transition: 0.3s;
+            &:hover {
+              box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.2);
+              @include br-1($br-card, $br-card, $br-card, $br-card);
+            }
+            .teacher-img {
+              @include br-1($br-card, $br-card, $br-none, $br-none);
+              overflow: hidden;
+              img {
+                transform: scale3d(1, 1, 1);
+                width: 100%;
+                transition: 0.5s;
+                &:hover {
+                  transform: scale3d(1.05, 1.05, 1.05);
+                }
+              }
+            }
+            .teacher-info {
+              background-color: $bg-light;
+              text-align: center;
+              padding: 30px;
+              @include br-1($br-none, $br-none, $br-card, $br-card);
+              p {
+                @include text($text-xxs, $text-semibold, $text-c1-pink);
+                margin-bottom: 6px;
+                line-height: 13px;
+              }
+              h4 {
+                @include text($text-l, $text-bold, $text-c1-dark);
+                margin-bottom: 15px;
+              }
+              span {
+                font-size: $text-s-2;
+                line-height: 22px;
+              }
+            }
+          }
+        }
+        .teacher-4 {
+          width: calc(100% / 4);
+          padding: 40px 0 0 30px;
+          .teacher-all {
+            transition: 0.3s;
+            &:hover {
+              box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.2);
+              @include br-1($br-card, $br-card, $br-card, $br-card);
+            }
+            .teacher-img {
+              @include br-1($br-card, $br-card, $br-none, $br-none);
+              overflow: hidden;
+              img {
+                transform: scale3d(1, 1, 1);
+                width: 100%;
+                transition: 0.5s;
+                &:hover {
+                  transform: scale3d(1.05, 1.05, 1.05);
+                }
+              }
+            }
+            .teacher-info {
+              background-color: $bg-light;
+              text-align: center;
+              padding: 30px;
+              @include br-1($br-none, $br-none, $br-card, $br-card);
+              p {
+                @include text($text-xxs, $text-semibold, $text-c1-pink);
+                margin-bottom: 6px;
+                line-height: 13px;
+              }
+              h4 {
+                @include text($text-l, $text-bold, $text-c1-dark);
+                margin-bottom: 15px;
+              }
+              span {
+                font-size: $text-s-2;
+                line-height: 22px;
+              }
+            }
+          }
+        }
+        @for $i from 0 to 4 {
+          .teacher-#{$i + 1} {
+            animation-delay: 0.3s * $i;
+          }
+        }
+      }
+    }
+  }
+  .teachersbg-violet {
+    position: absolute;
+    z-index: 1;
+    background-color: $bg-violet;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .teachersbg-white {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.find {
+  padding-top: 60px;
+  position: relative;
+  .container {
+    .find-content {
+      align-items: center;
+      .find-left {
+        width: 55%;
+        padding-right: 20px;
+        .container-img {
+          padding: 0 20px;
+          img {
+            margin: 60px 60px 0 100px;
+            width: 527px;
+            height: 527px;
+            opacity: 0;
+            animation: fadeInLeft 0.3s linear 0.2s;
+            animation-fill-mode: forwards;
+          }
+        }
+      }
+      .find-right {
+        width: 45%;
+        margin-left: 47px;
+        .findCourse {
+          width: 393px;
+          height: 504px;
+          background-color: $bg-light;
+          box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.2);
+          border-radius: $br-card;
+          text-align: center;
+          padding: 0 25px;
+          font-size: $text-xxs;
+          margin-right: 100px;
+          opacity: 0;
+          animation: fadeIn 0.5s linear 0.5s;
+          animation-fill-mode: forwards;
+          h1 {
+            width: 100%;
+            margin: 40px 0 50px;
+            font-size: 44px;
+            font-weight: 700;
+          }
+          .find-contact {
+            .find-two {
+              width: 100%;
+              .form-control {
+                transition: $tst-5;
+                &:focus {
+                  @include focus($bd-focus, $bs-focus);
+                }
+              }
+              .input-name {
+                width: 45%;
+                position: relative;
+                .name {
+                  @include input($br-button, 157px, 44px, $p-find, $text-xxs);
+                  margin-right: 15px;
+                }
+                span {
+                  position: absolute;
+                  @include icon(
+                    $text-base,
+                    $text-bold,
+                    $text-c1-pink,
+                    9px,
+                    17px
+                  );
+                }
+              }
+              .input-email {
+                width: 55%;
+                position: relative;
+                .email {
+                  @include input($br-button, 173px, 44px, $p-find, $text-xxs);
+                }
+                span {
+                  position: absolute;
+                  @include icon(
+                    $text-base,
+                    $text-bold,
+                    $text-c1-pink,
+                    9px,
+                    17px
+                  );
+                }
+              }
+            }
+            .custom-select {
+              transition: $tst-5;
+              @include select(
+                $text-xxs,
+                $text-light,
+                $text-c2-dark,
+                343px,
+                42px,
+                15px 0,
+                $p-find,
+                $br-button,
+                $bd
+              );
+              position: relative;
+              background: none;
+              &:focus {
+                @include focus($bd-focus, $bs-focus);
+              }
+            }
+            .icon-select {
+              position: relative;
+              .graduation {
+                position: absolute;
+                @include icon(
+                  $text-base,
+                  $text-bold,
+                  $text-c1-pink,
+                  21px,
+                  -328px
+                );
+              }
+              .arrow {
+                position: absolute;
+                @include icon(
+                  $text-base,
+                  $text-bold,
+                  $text-c1-pink,
+                  21px,
+                  -30px
+                );
+              }
+            }
+            .find-message {
+              position: relative;
+              .message {
+                transition: $tst-5;
+                @include select(
+                  $text-xxs,
+                  $text-light,
+                  $text-c2-dark,
+                  343px,
+                  90px,
+                  0,
+                  $p-find,
+                  $br-textarena,
+                  $bd
+                );
+                &:focus-visible {
+                  @include focus($bd-focus, $bs-focus);
+                  outline: none;
+                }
+              }
+              span {
+                position: absolute;
+                @include icon(
+                  $text-base,
+                  $text-bold,
+                  $text-c1-pink,
+                  15px,
+                  17px
+                );
+              }
+            }
+            .send {
+              position: relative;
+              z-index: 1;
+              @include button(
+                $text-base,
+                $text-semibold,
+                $text-c1-light,
+                $bg-pink,
+                8px 53px,
+                $bd-button,
+                $br-button,
+                $text-c1-pink
+              );
+              margin-top: 45px;
+              &::before {
+                content: "";
+                position: absolute;
+                background-color: $bg-light;
+                border-radius: $br-button;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                transform: scale(0.7, 0);
+                transition: all 0.3s ease;
+              }
+              &:hover::before {
+                z-index: -1;
+                transform: scale(1, 1);
+              }
+            }
+          }
+        }
+      }
+      @for $i from 0 to 2 {
+        .find-#{$i + 1} {
+          animation-delay: 0.3s + $i;
+        }
+      }
+    }
+  }
+  .find-bg {
+    padding-bottom: -60px;
+    position: absolute;
+    bottom: -30px;
+    z-index: -1;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.footer {
+  position: relative;
+  margin-top: 30px;
+  min-height: 529px;
+  background-image: url(../../../img/footer_background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .footer-bg {
+    .container {
+      .footer-content {
+        padding-top: 120px;
+        display: flex;
+        @include text($text-xxs, $text-regular, $text-c1-light);
+        .contactUs {
+          padding-right: 40px;
+          width: 25%;
+          h1 {
+            @include text($text-l, $text-bold, $text-c1-light);
+            margin-bottom: 30px;
+          }
+          .contact-location {
+            @include text($text-xs, $text-regular, $text-c1-light);
+            i {
+              padding-right: 10px;
+            }
+          }
+          .contact-phone {
+            @include text($text-xs, $text-regular, $text-c1-light);
+            i {
+              padding-right: 10px;
+            }
+          }
+          .contact-clock {
+            @include text($text-xs, $text-regular, $text-c1-light);
+            i {
+              padding-right: 10px;
+            }
+          }
+          .footer-icon {
+            margin-top: 15px;
+            a {
+              @include text($text-s, $text-regular, $text-c1-light);
+              padding-right: 15px;
+              i {
+                &:hover {
+                  color: $text-c1-dark;
+                }
+              }
+            }
+          }
+        }
+        .quickLinks {
+          padding: 0 40px;
+          width: 25%;
+          h1 {
+            @include text($text-l, $text-bold, $text-c1-light);
+            margin-bottom: 30px;
+          }
+          .quick-content {
+            ul {
+              list-style: none;
+              li {
+                @include list($p-footer, $bd-footer, 0);
+                a {
+                  @extend .list-item;
+                }
+              }
+            }
+          }
+        }
+        .footer-about {
+          padding: 0 40px;
+          width: 25%;
+          h1 {
+            @include text($text-l, $text-bold, $text-c1-light);
+            margin-bottom: 30px;
+          }
+          .about-content {
+            ul {
+              list-style: none;
+              li {
+                @include list($p-footer, $bd-footer, 0);
+                a {
+                  @extend .list-item;
+                }
+              }
+            }
+          }
+        }
+        .newsLetter {
+          padding-left: 40px;
+          width: 25%;
+          margin-bottom: 30px;
+          h1 {
+            @include text($text-l, $text-bold, $text-c1-light);
+            margin-bottom: 45px;
+          }
+          .footer-button {
+            .yourEmail {
+              width: 100%;
+              margin-bottom: 8px;
+              @include input($br-button, 240px, 48px, 0, $text-s);
+              text-align: center;
+              background-color: $bg-transparent;
+              border: $bd-inputbtn;
+              color: $text-c1-light;
+              &::placeholder {
+                color: $text-c1-light;
+              }
+              &:focus-visible {
+                border: 1px solid rgba(255, 255, 255, 1);
+                outline: none;
+              }
+            }
+            .subcribe {
+              position: relative;
+              width: 100%;
+              margin-right: 19px;
+              z-index: 1;
+              @include button(
+                $text-s,
+                $text-regular,
+                $text-c1-dark,
+                $bg-light,
+                9px 19px,
+                $bd-btn-footer,
+                $br-button,
+                $text-c1-light
+              );
+              &::before {
+                content: "";
+                position: absolute;
+                background-color: $bg-pink;
+                border-radius: $br-button;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                transform: scale(0.7, 0);
+                transition: all 0.3s ease;
+              }
+              &:hover {
+                border: $bd-btn-footer;
+              }
+              &:hover::before {
+                z-index: -1;
+                transform: scale(1, 1);
+              }
+            }
+          }
+        }
+        @for $i from 0 to 4 {
+          .footer-#{$i + 1} {
+            animation-delay: 0.3s * $i;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

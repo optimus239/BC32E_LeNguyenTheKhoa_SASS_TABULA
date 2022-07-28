@@ -1,0 +1,21 @@
+@import "../../themes/variable";
+.btn {
+  @include button(
+    $text-s,
+    $text-semibold,
+    $text-c1-light,
+    $bg-pink,
+    14px 20px,
+    2px solid $text-c1-pink,
+    $br-button,
+    $text-c1-pink
+  );
+}
+
+.list-item {
+  @include text($text-s, $text-regular, $text-c1-light);
+  &:hover {
+    text-decoration: none;
+    opacity: 0.8;
+  }
+}

@@ -1,0 +1,106 @@
+$bg-transparent: transparent;
+$bg-light: #fff;
+$bg-pink: #b61984;
+$bg-violet: #dcd1f3;
+// css cho text
+// text-color
+$text-c1-pink: #b61984;
+$text-c1-dark: #181818;
+$text-c1-light: #fff;
+$text-c2-dark: #495057;
+// text-size
+$text-xxs: 12px;
+$text-xs: 13px;
+$text-s: 14px;
+$text-s-2: 15px;
+$text-base: 16px;
+$text-l: 25px;
+// text-weight
+$text-light: 300;
+$text-regular: 400;
+$text-semibold: 500;
+$text-bold: 700;
+//border-radius
+$br-none: 0;
+$br-card: 7px;
+$br-textarena: 20px;
+$br-button: 50px;
+//box-shadow
+$bs-card: 0px 20px 20px 0px rgba(0, 0, 0, 0.2);
+$bs-focus: 0 0 4px 0 rgb(0 0 0 / 10%);
+//border
+$bd: 1px solid #ced4da;
+$bd-button: 2px solid $text-c1-pink;
+$bd-btn-footer: 2px solid $text-c1-light;
+$bd-focus: 1px solid rgba(0, 0, 0, 0.3);
+$bd-footer: 1px solid rgba(0, 0, 0, 0.1);
+$bd-inputbtn: 1px solid rgba(255, 255, 255, 0.1);
+$bd-inputbtn-hover: 1px solid rgba(255, 255, 255, 1);
+//padding
+$p-find: 12px 12px 12px 42px;
+$p-footer: 6px 3px 6px 0;
+//transition
+$tst-5: 0.5s;
+
+@mixin text($fs, $fw, $c) {
+  font-size: $fs;
+  font-weight: $fw;
+  color: $c;
+}
+
+@mixin button($fs, $fw, $c, $bg, $pd, $bd, $br, $c-hover) {
+  cursor: pointer;
+  @include text($fs, $fw, $c);
+  background-color: $bg;
+  padding: $pd;
+  border: $bd;
+  border-radius: $br;
+  &:hover {
+    color: $c-hover;
+  }
+}
+
+@mixin br-1($br-tl, $br-tr, $br-btr, $br-btl) {
+  border-top-left-radius: $br-tl;
+  border-top-right-radius: $br-tr;
+  border-bottom-right-radius: $br-btr;
+  border-bottom-left-radius: $br-btl;
+}
+
+@mixin input($br, $w, $h, $p, $fs) {
+  border-radius: $br;
+  width: $w;
+  height: $h;
+  padding: $p;
+  font-size: $fs;
+}
+
+@mixin select($fs, $fw, $c, $w, $h, $m, $p, $br, $bd) {
+  cursor: pointer;
+  @include text($fs, $fw, $c);
+  width: $w;
+  height: $h;
+  margin: $m;
+  padding: $p;
+  border-radius: $br;
+  border: $bd;
+}
+
+@mixin icon($fs, $fw, $c, $t, $l) {
+  @include text($fs, $fw, $c);
+  top: $t;
+  left: $l;
+}
+
+@mixin focus($bd, $bs) {
+  border: $bd;
+  box-shadow: $bs;
+}
+
+@mixin list($pd, $br-bt, $p-t) {
+  padding: $pd;
+  border-bottom: $br-bt;
+  &:nth-of-type(1) {
+    padding-top: $p-t;
+  }
+}
