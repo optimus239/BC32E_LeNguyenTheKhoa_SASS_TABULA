@@ -34,46 +34,35 @@
     <link rel="stylesheet" href="./css/index.min.css" />
   </head>
   <body>
-    <!-- header -->
-    <header class="header">
+    <div class="mainPage" id="main">
+      <!-- header -->
+    <header class="header" id="headerPage">
       <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarScroll"
-            aria-controls="navbarScroll"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand" href="#"
+        <nav class="navbar navbar-expand-lg" id="navbar-header">      
+          <a class="navbarLogo" id="logo" href="#"
             ><img src="./img/crest.png" alt=""
           /></a>
-
-          <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-nav-scroll">
-              <li class="nav-item active">
-                <a class="nav-link" href="#"
+          <div class="navbarCollapse">
+            <ul class="navbarNav mt-lg-0 d-flex">
+              <li class="navItem active">
+                <a class="navLink" href="#"
                   >Home <span class="sr-only">(current)</span></a
                 >
               </li>
-              <li class="nav-item">
-                <a class="nav-link nav-circle" href="#">About</a>
+              <li class="navItem">
+                <a class="navLink nav-circle" href="#">About</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Courses</a>
+              <li class="navItem">
+                <a class="navLink" href="#">Courses</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
+              <li class="navItem">
+                <a class="navLink" href="#">Blog</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Shop</a>
+              <li class="navItem">
+                <a class="navLink" href="#">Shop</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Elements</a>
+              <li class="navItem">
+                <a class="navLink" href="#">Elements</a>
               </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -89,11 +78,14 @@
               </div>
             </form>
           </div>
+          <button class="navToggle" id="btntoggle">
+            <span></span>
+          </button>  
         </nav>
       </div>
     </header>
     <!-- about -->
-    <section class="about">
+    <section class="about" id="aboutPage">
       <div class="container">
         <div class="about-content">
           <div class="about-desc">
@@ -115,7 +107,7 @@
       </div>
     </section>
     <!-- teachers -->
-    <section class="teachers">
+    <section class="teachers" id="teachersPage">
       <div class="container">
         <div class="teachers-card">
           <div class="card-top d-flex">
@@ -239,7 +231,7 @@
       </div>
     </section>
     <!-- find -->
-    <section class="find">
+    <section class="find" id="findPage">
       <div class="container">
         <div class="find-content d-flex">
           <div class="find-left find-1">
@@ -305,7 +297,7 @@
       </div>
     </section>
     <!-- footer -->
-    <footer class="footer">
+    <footer class="footer" id="footerPage">
       <div class="footer-bg">
         <div class="container">
           <div class="footer-content">
@@ -361,6 +353,65 @@
         </div>
       </div>
     </footer>
+    <!-- sidebar -->
+    <div class="sideBar" id="mainSidebar">
+      <div class="sideBar-logo">
+        <img src="./img/crest.png" alt="">
+      </div>
+      <ul class="side-ul">
+        <li class="side-li active">
+          <a class="nav-link" href="#"
+            >Home <span class="sr-only">(current)</span></a
+          >
+          <div class="li-icon">
+            <i class="fa-solid fa-angle-up"></i>
+          </div>
+        </li>
+        <li class="side-li">
+          <a class="nav-link nav-circle" href="#">About</a>
+         <div class="li-icon">
+           <i class="fa-solid fa-angle-down"></i>
+         </div>
+        </li>
+        <li class="side-li">
+          <a class="nav-link" href="#">Courses</a>
+         <div class="li-icon">
+           <i class="fa-solid fa-angle-down"></i>
+         </div>
+        </li>
+        <li class="side-li">
+          <a class="nav-link" href="#">Blog</a>
+         <div class="li-icon">
+           <i class="fa-solid fa-angle-down"></i>
+         </div>
+        </li>
+        <li class="side-li">
+          <a class="nav-link" href="#">Shop</a>
+         <div class="li-icon">
+           <i class="fa-solid fa-angle-down"></i>
+         </div>
+        </li>
+        <li class="side-li">
+          <a class="nav-link" href="#">Elements</a>
+         <div class="li-icon">
+           <i class="fa-solid fa-angle-down"></i>
+         </div>
+        </li>
+      </ul>
+      <form class="form-inline-side my-2 my-lg-0 d-flex flex-wrap">
+        <div class="nav-phone-side">
+          <i class="fa-solid fa-phone-flip mr-2"></i
+          ><span>(+1) 555 234-8765</span>
+        </div>
+        <div class="nav-socials-side">
+          <a href=""><i class="fa-brands fa-twitter ml-2"></i></a>
+          <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+          <a href=""><i class="fa-brands fa-youtube"></i></a>
+          <a href=""><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </form>
+    </div>
+  </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -382,5 +433,6 @@
     <script>
     new WOW().init();
     </script>
+    <script src="./index.js"></script>
   </body>
 </html>

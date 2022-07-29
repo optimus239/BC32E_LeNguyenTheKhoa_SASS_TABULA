@@ -2,6 +2,7 @@ $bg-transparent: transparent;
 $bg-light: #fff;
 $bg-pink: #b61984;
 $bg-violet: #dcd1f3;
+$bg-dark: #181818;
 // css cho text
 // text-color
 $text-c1-pink: #b61984;
@@ -103,4 +104,13 @@ $tst-5: 0.5s;
   &:nth-of-type(1) {
     padding-top: $p-t;
   }
+}
+
+@mixin toggle($w, $h, $t, $l, $bg) {
+  cursor: pointer;
+  width: $w;
+  height: $h;
+  top: $t;
+  left: $l;
+  background-color: $bg-dark;
 }
