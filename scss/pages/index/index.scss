@@ -1,9 +1,13 @@
 @import "../../themes/variable";
 @import "../../base/components/components";
+
+body.no-scroll {
+  overflow: hidden;
+}
+
 #main {
   position: relative;
   transition: 0.5s;
-  overflow: hidden;
   .header {
     position: fixed;
     z-index: 5;
@@ -11,8 +15,8 @@
     animation: fadeIn 0.3s;
     background-color: $bg-transparent;
     @media only screen and (max-width: 1199.98px) {
-      height: 100%;
-      width: 100%;
+      // height: 100%;
+      // width: 100%;
       background-color: $bg-transparent;
     }
     .container {
@@ -27,7 +31,7 @@
         @media only screen and (max-width: 1199.98px) {
           position: relative;
           width: 100%;
-          height: 48px;
+          height: 48px !important;
           text-align: center;
         }
         .navbarLogo {
@@ -43,15 +47,17 @@
           }
         }
         .navbarLogo.show {
-          display: none;
-          img {
-            width: 80px;
-            @media only screen and (max-width: 1199.98px) {
-              position: absolute;
-              width: 48px;
-              height: 100%;
-              top: 0;
-              left: 40px;
+          @media only screen and (max-width: 1199.98px) {
+            display: none;
+            img {
+              width: 80px;
+              @media only screen and (max-width: 1199.98px) {
+                position: absolute;
+                width: 48px;
+                height: 100%;
+                top: 0;
+                left: 40px;
+              }
             }
           }
         }
@@ -76,21 +82,25 @@
                   text-decoration: none;
                 }
               }
-              .nav-circle {
-                position: relative;
-                &::after {
-                  content: "";
+              .navLink.nav-circle {
+                display: inline-block;
+                .circle {
                   position: absolute;
-                  width: 9px;
-                  height: 9px;
-                  border-radius: 50%;
-                  background-color: $bg-pink;
-                  top: 57px;
-                  left: 25%;
-                  transition: 0.3s;
-                }
-                &:hover::after {
-                  transform: scale(1.2, 1.2);
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    z-index: 100;
+                    width: 9px;
+                    height: 9px;
+                    border-radius: 50%;
+                    background-color: $bg-pink;
+                    top: 49px;
+                    left: -26px;
+                    transition: 0.3s;
+                  }
+                  &:hover::before {
+                    transform: scale(1.2, 1.2);
+                  }
                 }
               }
             }
@@ -281,57 +291,65 @@
     width: 100%;
     padding-bottom: 60px;
     .container {
-      .about-content {
-        background-color: $bg-transparent;
-        .about-desc {
-          display: flex;
+      padding-top: 65px;
+      .about-left {
+        width: 50%;
+        margin-top: 17%;
+        padding: 0;
+        opacity: 0;
+        animation: fadeInLeft 0.3s linear 0.2s;
+        animation-fill-mode: forwards;
+        @media only screen and (max-width: 991.98px) {
+          margin-top: 47px;
+          z-index: 2;
+        }
+        h6 {
+          @include text($text-h6-base, $text-semibold, $text-c1-pink);
+        }
+        h1 {
+          @include text($text-h1-l, $text-bold, $text-c1-dark);
+        }
+        @media only screen and (max-width: 1199.98px) {
+          h6 {
+            @include text($text-base, $text-semibold, $text-c1-pink);
+          }
+          h1 {
+            @include text($text-h1-base, $text-bold, $text-c1-dark);
+          }
+        }
+      }
+      .about-right {
+        width: 50%;
+        opacity: 0;
+        animation: fadeIn 0.5s linear 0.5s;
+        animation-fill-mode: forwards;
+        img {
           width: 100%;
-          align-items: center;
-          padding-top: 63px;
-          .about-left {
-            width: 50%;
-            opacity: 0;
-            animation: fadeInLeft 0.3s linear 0.2s;
-            animation-fill-mode: forwards;
-            h6 {
-              font-size: 20px;
-              color: $text-c1-pink;
-            }
-            h1 {
-              font-size: 65px;
-              font-weight: 700;
-              color: $text-c1-dark;
-            }
-          }
-          .about-right {
-            width: 50%;
-            opacity: 0;
-            animation: fadeIn 0.5s linear 0.5s;
-            animation-fill-mode: forwards;
-            img {
-              width: 100%;
-            }
+          @media only screen and (max-width: 991.98px) {
+            width: 580px;
+            height: 580px;
           }
         }
-        .bg-top {
-          position: absolute;
-          right: 0;
-          left: 0;
-          top: 0;
-          // z-index: -1;
-          img {
-            width: 100%;
-          }
+      }
+
+      .bg-top {
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        // z-index: -1;
+        img {
+          width: 100%;
         }
-        .bg-bottom {
-          position: absolute;
-          right: 0;
-          left: 0;
-          bottom: 0;
-          z-index: -1;
-          img {
-            width: 100%;
-          }
+      }
+      .bg-bottom {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+        img {
+          width: 100%;
         }
       }
     }
@@ -352,6 +370,9 @@
             width: calc(100% / 4);
             padding-right: 30px;
             border-radius: 5px;
+            @media only screen and (max-width: 991.98px) {
+              width: calc(100% / 2);
+            }
             .teacher-all {
               transition: 0.3s;
               &:hover {
@@ -375,6 +396,9 @@
                 text-align: center;
                 padding: 30px;
                 @include br-1($br-none, $br-none, $br-card, $br-card);
+                @media only screen and (max-width: 1199.98px) {
+                  padding: 30px 20px;
+                }
                 p {
                   @include text($text-xxs, $text-semibold, $text-c1-pink);
                   margin-bottom: 6px;
@@ -387,6 +411,9 @@
                 span {
                   font-size: $text-s-2;
                   line-height: 22px;
+                  @media only screen and (max-width: 1199.98px) {
+                    font-size: $text-xs;
+                  }
                 }
               }
             }
@@ -394,6 +421,9 @@
           .teacher-2 {
             width: calc(100% / 4);
             padding: 0 20px 0 10px;
+            @media only screen and (max-width: 991.98px) {
+              width: calc(100% / 2);
+            }
             .teacher-all {
               transition: 0.3s;
               &:hover {
@@ -417,6 +447,9 @@
                 text-align: center;
                 padding: 30px;
                 @include br-1($br-none, $br-none, $br-card, $br-card);
+                @media only screen and (max-width: 1199.98px) {
+                  padding: 30px 20px;
+                }
                 p {
                   @include text($text-xxs, $text-semibold, $text-c1-pink);
                   margin-bottom: 6px;
@@ -429,6 +462,9 @@
                 span {
                   font-size: $text-s-2;
                   line-height: 22px;
+                  @media only screen and (max-width: 1199.98px) {
+                    font-size: $text-xs;
+                  }
                 }
               }
             }
@@ -436,6 +472,10 @@
           .teacher-3 {
             width: calc(100% / 4);
             padding: 0 10px 0 20px;
+            @media only screen and (max-width: 991.98px) {
+              width: calc(100% / 2);
+              padding: 0 30px 0 0;
+            }
             .teacher-all {
               transition: 0.3s;
               &:hover {
@@ -459,6 +499,9 @@
                 text-align: center;
                 padding: 30px;
                 @include br-1($br-none, $br-none, $br-card, $br-card);
+                @media only screen and (max-width: 1199.98px) {
+                  padding: 30px 20px;
+                }
                 p {
                   @include text($text-xxs, $text-semibold, $text-c1-pink);
                   margin-bottom: 6px;
@@ -471,6 +514,9 @@
                 span {
                   font-size: $text-s-2;
                   line-height: 22px;
+                  @media only screen and (max-width: 1199.98px) {
+                    font-size: $text-xs;
+                  }
                 }
               }
             }
@@ -478,6 +524,10 @@
           .teacher-4 {
             width: calc(100% / 4);
             padding-left: 30px;
+            @media only screen and (max-width: 991.98px) {
+              width: calc(100% / 2);
+              padding: 0 20px 0 10px;
+            }
             .teacher-all {
               transition: 0.3s;
               &:hover {
@@ -501,6 +551,9 @@
                 text-align: center;
                 padding: 30px;
                 @include br-1($br-none, $br-none, $br-card, $br-card);
+                @media only screen and (max-width: 1199.98px) {
+                  padding: 30px 20px;
+                }
                 p {
                   @include text($text-xxs, $text-semibold, $text-c1-pink);
                   margin-bottom: 6px;
@@ -513,6 +566,9 @@
                 span {
                   font-size: $text-s-2;
                   line-height: 22px;
+                  @media only screen and (max-width: 1199.98px) {
+                    font-size: $text-xs;
+                  }
                 }
               }
             }
@@ -527,6 +583,9 @@
           .teacher-1 {
             width: calc(100% / 4);
             padding: 40px 30px 0 0;
+            @media only screen and (max-width: 991.98px) {
+              width: calc(100% / 2);
+            }
             .teacher-all {
               transition: 0.3s;
               &:hover {
@@ -550,6 +609,9 @@
                 text-align: center;
                 padding: 30px;
                 @include br-1($br-none, $br-none, $br-card, $br-card);
+                @media only screen and (max-width: 1199.98px) {
+                  padding: 30px 20px;
+                }
                 p {
                   @include text($text-xxs, $text-semibold, $text-c1-pink);
                   margin-bottom: 6px;
@@ -562,6 +624,9 @@
                 span {
                   font-size: $text-s-2;
                   line-height: 22px;
+                  @media only screen and (max-width: 1199.98px) {
+                    font-size: $text-xs;
+                  }
                 }
               }
             }
@@ -569,6 +634,9 @@
           .teacher-2 {
             width: calc(100% / 4);
             padding: 40px 20px 0 10px;
+            @media only screen and (max-width: 991.98px) {
+              width: calc(100% / 2);
+            }
             .teacher-all {
               transition: 0.3s;
               &:hover {
@@ -592,6 +660,9 @@
                 text-align: center;
                 padding: 30px;
                 @include br-1($br-none, $br-none, $br-card, $br-card);
+                @media only screen and (max-width: 1199.98px) {
+                  padding: 30px 20px;
+                }
                 p {
                   @include text($text-xxs, $text-semibold, $text-c1-pink);
                   margin-bottom: 6px;
@@ -604,6 +675,9 @@
                 span {
                   font-size: $text-s-2;
                   line-height: 22px;
+                  @media only screen and (max-width: 1199.98px) {
+                    font-size: $text-xs;
+                  }
                 }
               }
             }
@@ -611,6 +685,10 @@
           .teacher-3 {
             width: calc(100% / 4);
             padding: 40px 10px 0 20px;
+            @media only screen and (max-width: 991.98px) {
+              width: calc(100% / 2);
+              padding: 0 30px 0 0;
+            }
             .teacher-all {
               transition: 0.3s;
               &:hover {
@@ -634,6 +712,9 @@
                 text-align: center;
                 padding: 30px;
                 @include br-1($br-none, $br-none, $br-card, $br-card);
+                @media only screen and (max-width: 1199.98px) {
+                  padding: 30px 20px;
+                }
                 p {
                   @include text($text-xxs, $text-semibold, $text-c1-pink);
                   margin-bottom: 6px;
@@ -646,6 +727,9 @@
                 span {
                   font-size: $text-s-2;
                   line-height: 22px;
+                  @media only screen and (max-width: 1199.98px) {
+                    font-size: $text-xs;
+                  }
                 }
               }
             }
@@ -653,6 +737,10 @@
           .teacher-4 {
             width: calc(100% / 4);
             padding: 40px 0 0 30px;
+            @media only screen and (max-width: 991.98px) {
+              width: calc(100% / 2);
+              padding: 0 20px 0 10px;
+            }
             .teacher-all {
               transition: 0.3s;
               &:hover {
@@ -676,6 +764,9 @@
                 text-align: center;
                 padding: 30px;
                 @include br-1($br-none, $br-none, $br-card, $br-card);
+                @media only screen and (max-width: 1199.98px) {
+                  padding: 30px 20px;
+                }
                 p {
                   @include text($text-xxs, $text-semibold, $text-c1-pink);
                   margin-bottom: 6px;
@@ -688,6 +779,9 @@
                 span {
                   font-size: $text-s-2;
                   line-height: 22px;
+                  @media only screen and (max-width: 1199.98px) {
+                    font-size: $text-xs;
+                  }
                 }
               }
             }
@@ -724,153 +818,94 @@
   }
 
   .find {
-    padding-top: 60px;
+    padding: 60px 0;
     position: relative;
+    @media only screen and (max-width: 1199.98px) {
+      padding: 52px 0 60px;
+    }
+    @media only screen and (max-width: 991.98px) {
+      padding: 52px 0 0px;
+    }
+
     .container {
-      .find-content {
-        align-items: center;
-        .find-left {
-          width: 55%;
-          padding-right: 20px;
-          .container-img {
-            padding: 0 20px;
-            img {
-              margin: 60px 60px 0 100px;
-              width: 527px;
-              height: 527px;
-              opacity: 0;
-              animation: fadeInLeft 0.3s linear 0.2s;
-              animation-fill-mode: forwards;
+      align-items: center;
+      .find-left {
+        padding-right: 20px;
+        .container-img {
+          padding: 0 20px;
+          img {
+            margin: 60px 0 0 95px;
+            width: 100%;
+            opacity: 0;
+            animation: fadeInLeft 0.3s linear 0.2s;
+            animation-fill-mode: forwards;
+            @media only screen and (max-width: 1199.98px) {
+              margin: 10px 0 0 0;
+              width: 482px;
+              height: 482px;
             }
           }
         }
-        .find-right {
-          width: 45%;
-          margin-left: 47px;
-          .findCourse {
-            width: 393px;
-            height: 504px;
-            background-color: $bg-light;
-            box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.2);
-            border-radius: $br-card;
-            text-align: center;
-            padding: 0 25px;
-            font-size: $text-xxs;
-            margin-right: 100px;
-            opacity: 0;
-            animation: fadeIn 0.5s linear 0.5s;
-            animation-fill-mode: forwards;
-            h1 {
-              width: 100%;
-              margin: 40px 0 50px;
-              font-size: 44px;
-              font-weight: 700;
+      }
+      .find-right {
+        // width: 45%;
+        // margin-left: 47px;
+        @media only screen and (max-width: 991.98px) {
+          padding: 50px 0 0 0;
+        }
+        .findCourse {
+          width: 393px;
+          height: 500px;
+          background-color: $bg-light;
+          box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.2);
+          border-radius: $br-card;
+          text-align: center;
+          padding: 10px 25px 0 25px;
+          font-size: $text-xxs;
+          margin: 25px 0 0 100px;
+          opacity: 0;
+          animation: fadeIn 0.5s linear 0.5s;
+          animation-fill-mode: forwards;
+          @media only screen and (max-width: 1199.98px) {
+            margin: 20px 0 10px 60px;
+            height: 480px;
+          }
+          @media only screen and (max-width: 991.98px) {
+            width: 100%;
+            height: 480px;
+            padding: 0 20px !important;
+            margin: 0;
+            text-align: left;
+            box-shadow: $bs-input;
+          }
+
+          h1 {
+            width: 100%;
+            margin: 25px 0 50px;
+            font-size: 44px;
+            font-weight: 700;
+            @media only screen and (max-width: 991.98px) {
+              font-size: $text-h1-xs;
             }
-            .find-contact {
-              .find-two {
-                width: 100%;
-                .form-control {
-                  transition: $tst-5;
-                  &:focus {
-                    @include focus($bd-focus, $bs-focus);
-                  }
-                }
-                .input-name {
-                  width: 45%;
-                  position: relative;
-                  .name {
-                    @include input($br-button, 157px, 44px, $p-find, $text-xxs);
-                    margin-right: 15px;
-                  }
-                  span {
-                    position: absolute;
-                    @include icon(
-                      $text-base,
-                      $text-bold,
-                      $text-c1-pink,
-                      9px,
-                      17px
-                    );
-                  }
-                }
-                .input-email {
-                  width: 55%;
-                  position: relative;
-                  .email {
-                    @include input($br-button, 173px, 44px, $p-find, $text-xxs);
-                  }
-                  span {
-                    position: absolute;
-                    @include icon(
-                      $text-base,
-                      $text-bold,
-                      $text-c1-pink,
-                      9px,
-                      17px
-                    );
-                  }
-                }
-              }
-              .custom-select {
+          }
+          .find-contact {
+            .find-two {
+              width: 100%;
+              .form-control {
                 transition: $tst-5;
-                @include select(
-                  $text-xxs,
-                  $text-light,
-                  $text-c2-dark,
-                  343px,
-                  42px,
-                  15px 0,
-                  $p-find,
-                  $br-button,
-                  $bd
-                );
-                position: relative;
-                background: none;
                 &:focus {
                   @include focus($bd-focus, $bs-focus);
                 }
               }
-              .icon-select {
+              .input-name {
+                width: 45%;
                 position: relative;
-                .graduation {
-                  position: absolute;
-                  @include icon(
-                    $text-base,
-                    $text-bold,
-                    $text-c1-pink,
-                    21px,
-                    -328px
-                  );
-                }
-                .arrow {
-                  position: absolute;
-                  @include icon(
-                    $text-base,
-                    $text-bold,
-                    $text-c1-pink,
-                    21px,
-                    -30px
-                  );
-                }
-              }
-              .find-message {
-                position: relative;
-                .message {
-                  transition: $tst-5;
-                  @include select(
-                    $text-xxs,
-                    $text-light,
-                    $text-c2-dark,
-                    343px,
-                    90px,
-                    0,
-                    $p-find,
-                    $br-textarena,
-                    $bd
-                  );
-                  &:focus-visible {
-                    @include focus($bd-focus, $bs-focus);
-                    outline: none;
+                .name {
+                  @include input($br-button, 157px, 44px, $p-find, $text-xxs);
+                  margin-right: 15px;
+                  @media only screen and (max-width: 991.98px) {
+                    width: 100%;
+                    margin: 0;
                   }
                 }
                 span {
@@ -879,80 +914,266 @@
                     $text-base,
                     $text-bold,
                     $text-c1-pink,
-                    15px,
+                    9px,
+                    17px
+                  );
+                  @media only screen and (max-width: 991.98px) {
+                    @include icon(
+                      $text-xxs,
+                      $text-bold,
+                      $text-c1-pink,
+                      9px,
+                      17px
+                    );
+                  }
+                }
+              }
+              .input-email {
+                width: 55%;
+                position: relative;
+                .email {
+                  @include input($br-button, 173px, 44px, $p-find, $text-xxs);
+                  @media only screen and (max-width: 991.98px) {
+                    width: 100%;
+                    margin: 0;
+                  }
+                }
+                span {
+                  position: absolute;
+                  @include icon(
+                    $text-base,
+                    $text-bold,
+                    $text-c1-pink,
+                    9px,
+                    17px
+                  );
+                  @media only screen and (max-width: 991.98px) {
+                    @include icon(
+                      $text-xxs,
+                      $text-bold,
+                      $text-c1-pink,
+                      9px,
+                      17px
+                    );
+                  }
+                }
+              }
+            }
+            .custom-select {
+              transition: $tst-5;
+              @media only screen and (max-width: 991.98px) {
+                width: 100%;
+              }
+              @include select(
+                $text-xxs,
+                $text-light,
+                $text-c2-dark,
+                343px,
+                42px,
+                15px 0,
+                $p-find,
+                $br-button,
+                $bd
+              );
+              position: relative;
+              background: none;
+              &:focus {
+                @include focus($bd-focus, $bs-focus);
+              }
+            }
+            .icon-select {
+              position: relative;
+              width: 100%;
+              .graduation {
+                position: absolute;
+                @include icon($text-base, $text-bold, $text-c1-pink, -51px, 5%);
+                @media only screen and (max-width: 1199.98px) {
+                  @include icon(
+                    $text-base,
+                    $text-light,
+                    $text-c1-pink,
+                    -51px,
+                    5%
+                  );
+                }
+                @media only screen and (max-width: 991.98px) {
+                  @include icon(
+                    $text-xxs,
+                    $text-bold,
+                    $text-c1-pink,
+                    -50px,
                     17px
                   );
                 }
               }
-              .send {
-                position: relative;
-                z-index: 1;
-                @include button(
+              .arrow {
+                position: absolute;
+                @include icon(
                   $text-base,
-                  $text-semibold,
-                  $text-c1-light,
-                  $bg-pink,
-                  8px 53px,
-                  $bd-button,
-                  $br-button,
-                  $text-c1-pink
+                  $text-light,
+                  $text-c1-pink,
+                  -50px,
+                  91%
                 );
-                margin-top: 45px;
-                &::before {
-                  content: "";
-                  position: absolute;
-                  background-color: $bg-light;
-                  border-radius: $br-button;
-                  top: 0;
-                  left: 0;
-                  right: 0;
-                  bottom: 0;
-                  transform: scale(0.7, 0);
-                  transition: all 0.3s ease;
+                @media only screen and (max-width: 1199.98px) {
+                  @include icon(
+                    $text-base,
+                    $text-light,
+                    $text-c1-pink,
+                    -50px,
+                    91%
+                  );
                 }
-                &:hover::before {
-                  z-index: -1;
-                  transform: scale(1, 1);
+                @media only screen and (max-width: 991.98px) {
+                  @include icon(
+                    $text-base,
+                    $text-light,
+                    $text-c1-pink,
+                    -50px,
+                    96%
+                  );
                 }
+              }
+            }
+            .find-message {
+              position: relative;
+              @media only screen and (max-width: 991.98px) {
+                width: 100%;
+              }
+              .message {
+                transition: $tst-5;
+                @include select(
+                  $text-xxs,
+                  $text-light,
+                  $text-c2-dark,
+                  343px,
+                  90px,
+                  0,
+                  $p-find,
+                  $br-textarena,
+                  $bd
+                );
+                @media only screen and (max-width: 991.98px) {
+                  width: 100%;
+                }
+                &:focus-visible {
+                  @include focus($bd-focus, $bs-focus);
+                  outline: none;
+                }
+              }
+              span {
+                position: absolute;
+                @include icon(
+                  $text-base,
+                  $text-bold,
+                  $text-c1-pink,
+                  15px,
+                  17px
+                );
+                @media only screen and (max-width: 991.98px) {
+                  @include icon(
+                    $text-xxs,
+                    $text-bold,
+                    $text-c1-pink,
+                    14px,
+                    17px
+                  );
+                }
+              }
+            }
+            .send {
+              position: relative;
+              z-index: 1;
+              @include button(
+                $text-base,
+                $text-semibold,
+                $text-c1-light,
+                $bg-pink,
+                8px 53px,
+                $bd-button,
+                $br-button,
+                $text-c1-pink
+              );
+              margin-top: 65px;
+              &::before {
+                content: "";
+                position: absolute;
+                background-color: $bg-light;
+                border-radius: $br-button;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                transform: scale(0.7, 0);
+                transition: all 0.3s ease;
+              }
+              &:hover::before {
+                z-index: -1;
+                transform: scale(1, 1);
+              }
+              @media only screen and (max-width: 991.98px) {
+                margin-top: 40px;
               }
             }
           }
         }
-        @for $i from 0 to 2 {
-          .find-#{$i + 1} {
-            animation-delay: 0.3s + $i;
-          }
+      }
+      @for $i from 0 to 2 {
+        .find-#{$i + 1} {
+          animation-delay: 0.3s + $i;
         }
       }
     }
     .find-bg {
-      padding-bottom: -60px;
       position: absolute;
-      bottom: -30px;
+      bottom: 29px;
       z-index: -1;
+      @media only screen and (max-width: 1199.98px) {
+        bottom: 34px;
+      }
       img {
         width: 100%;
+      }
+      @media only screen and (max-width: 991.98px) {
+        bottom: -14px;
       }
     }
   }
 
   .footer {
     position: relative;
-    margin-top: 30px;
+    // max-width: 1260px;
+    margin-top: -30px;
     min-height: 529px;
     background-image: url(../../../img/footer_background.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    @media only screen and (max-width: 1199.98px) {
+      margin-top: -34px;
+    }
+    @media only screen and (max-width: 991.98px) {
+      margin-top: 14px;
+      padding-bottom: 150px;
+    }
     .footer-bg {
       .container {
         .footer-content {
           padding-top: 120px;
           display: flex;
           @include text($text-xxs, $text-regular, $text-c1-light);
+          @media only screen and (max-width: 1199.98px) {
+            padding-top: 90px;
+          }
+          @media only screen and (max-width: 991.98px) {
+            padding-bottom: 25px;
+          }
           .contactUs {
             padding-right: 40px;
             width: 25%;
+            @media only screen and (max-width: 1199.98px) {
+              padding-right: 55px;
+            }
             h1 {
               @include text($text-l, $text-bold, $text-c1-light);
               margin-bottom: 30px;
@@ -962,11 +1183,17 @@
               i {
                 padding-right: 10px;
               }
+              @media only screen and (max-width: 991.98px) {
+                @include text($text-xxs, $text-regular, $text-c1-light);
+              }
             }
             .contact-phone {
               @include text($text-xs, $text-regular, $text-c1-light);
               i {
                 padding-right: 10px;
+              }
+              @media only screen and (max-width: 991.98px) {
+                @include text($text-xxs, $text-regular, $text-c1-light);
               }
             }
             .contact-clock {
@@ -974,12 +1201,18 @@
               i {
                 padding-right: 10px;
               }
+              @media only screen and (max-width: 991.98px) {
+                @include text($text-xxs, $text-regular, $text-c1-light);
+              }
             }
             .footer-icon {
               margin-top: 15px;
               a {
                 @include text($text-s, $text-regular, $text-c1-light);
                 padding-right: 15px;
+                @media only screen and (max-width: 991.98px) {
+                  padding-right: 10px;
+                }
                 i {
                   &:hover {
                     color: $text-c1-dark;
@@ -1001,6 +1234,9 @@
                 li {
                   @include list($p-footer, $bd-footer, 0);
                   a {
+                    @media only screen and (max-width: 991.98px) {
+                      @include text($text-xxs, $text-regular, $text-c1-light);
+                    }
                     @extend .list-item;
                   }
                 }
@@ -1020,10 +1256,16 @@
                 li {
                   @include list($p-footer, $bd-footer, 0);
                   a {
+                    @media only screen and (max-width: 991.98px) {
+                      @include text($text-xxs, $text-regular, $text-c1-light);
+                    }
                     @extend .list-item;
                   }
                 }
               }
+            }
+            @media only screen and (max-width: 991.98px) {
+              padding: 30px 55px 0 15px;
             }
           }
           .newsLetter {
@@ -1035,7 +1277,13 @@
               margin-bottom: 45px;
             }
             .footer-button {
+              @media only screen and (max-width: 991.98px) {
+                @include text($text-xxs, $text-regular, $text-c1-light);
+              }
               .yourEmail {
+                @media only screen and (max-width: 1199.98px) {
+                  width: 100%;
+                }
                 width: 100%;
                 margin-bottom: 8px;
                 @include input($br-button, 240px, 48px, 0, $text-s);
@@ -1056,6 +1304,9 @@
                 width: 100%;
                 margin-right: 19px;
                 z-index: 1;
+                @media only screen and (max-width: 1199.98px) {
+                  margin-right: 0;
+                }
                 @include button(
                   $text-s,
                   $text-regular,
@@ -1087,6 +1338,9 @@
                 }
               }
             }
+            @media only screen and (max-width: 991.98px) {
+              padding: 30px 55px 0 15px;
+            }
           }
           @for $i from 0 to 4 {
             .footer-#{$i + 1} {
@@ -1098,105 +1352,121 @@
     }
   }
   .sideBar {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    left: 0;
-    background-color: $bg-light;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: 0.5s;
-    justify-content: center;
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    .sideBar-logo {
-      width: 100%;
-      margin-bottom: 27px;
-    }
-    .side-ul {
-      list-style: none;
-      width: 100%;
-      .side-li {
-        width: 100%;
-        &:nth-of-type(1) {
-          a {
-            font-weight: $text-bold;
-          }
-        }
-        a {
-          @include text($text-s, $text-light, $text-c1-dark);
-          text-decoration: none;
-          padding: 7px 0;
-          &:hover {
-            color: $text-c1-pink;
-          }
-        }
-        .li-icon {
-          font-size: $text-xxs;
-          i {
-            position: relative;
-            top: -32px;
-            left: 35%;
-          }
-        }
-      }
-    }
-    .form-inline-side {
-      overflow: hidden;
-      width: 100%;
-      margin-left: 14px;
+    display: none;
+    @media only screen and(max-width:1199.98px) {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 3;
+      top: 0;
+      left: 0;
+      background-color: $bg-light;
+      overflow-x: hidden;
+      padding-top: 60px;
+      transition: 0.5s;
       justify-content: center;
-      .nav-phone-side {
-        width: 65%;
-        @extend .btn;
-        position: relative;
-        line-height: 1;
-        overflow: hidden;
-        z-index: 1;
-        margin: 20px 0 3px 0;
-        &::before {
-          content: "";
-          position: absolute;
-          background-color: $bg-light;
-          border-radius: $br-button;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          transform: scale(0.7, 0);
-          transition: all 0.3s ease;
-        }
-        &:hover {
-          color: $text-c1-pink;
-        }
-        &:hover::before {
-          z-index: -1;
-          transform: scale(1, 1);
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      .sideBar-logo {
+        width: 100%;
+        margin-bottom: 27px;
+      }
+      .side-ul {
+        list-style: none;
+        width: 100%;
+        .side-li {
+          width: 100%;
+          &:nth-of-type(1) {
+            a {
+              font-weight: $text-bold;
+            }
+          }
+          a {
+            @include text($text-s, $text-light, $text-c1-dark);
+            text-decoration: none;
+            padding: 7px 0;
+            &:hover {
+              color: $text-c1-pink;
+            }
+          }
+          .li-icon {
+            font-size: $text-xxs;
+            i {
+              position: relative;
+              top: -32px;
+              left: 35%;
+            }
+          }
         }
       }
-      .nav-socials-side {
+      .form-inline-side {
+        overflow: hidden;
         width: 100%;
-        a {
-          @include text($text-base, $text-regular, $text-c1-dark);
-          margin-left: 7px;
+        margin-left: 14px;
+        justify-content: center;
+        .nav-phone-side {
+          width: 65%;
+          @include button(
+            $text-s,
+            $text-semibold,
+            $text-c1-light,
+            $bg-pink,
+            14px 20px,
+            2px solid $text-c1-pink,
+            $br-button,
+            $text-c1-pink
+          );
+          position: relative;
+          line-height: 1;
+          overflow: hidden;
+          z-index: 1;
+          margin: 20px 0 3px 0;
+          &::before {
+            content: "";
+            position: absolute;
+            background-color: $bg-light;
+            border-radius: $br-button;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transform: scale(0.7, 0);
+            transition: all 0.3s ease;
+          }
           &:hover {
             color: $text-c1-pink;
+          }
+          &:hover::before {
+            z-index: -1;
+            transform: scale(1, 1);
+          }
+        }
+        .nav-socials-side {
+          width: 100%;
+          a {
+            @include text($text-base, $text-regular, $text-c1-dark);
+            margin-left: 7px;
+            &:hover {
+              color: $text-c1-pink;
+            }
           }
         }
       }
     }
   }
   .sideBar.show {
-    width: 320px;
-    padding-top: 0;
+    @media only screen and (max-width: 1199.98px) {
+      width: 320px;
+      padding-top: 0;
+    }
   }
 }
 
 .mainPage.show {
-  left: 320px;
+  @media only screen and (max-width: 1199.98px) {
+    left: 320px;
+  }
 }
 
 @keyframes fadeIn {

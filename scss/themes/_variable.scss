@@ -15,7 +15,11 @@ $text-xs: 13px;
 $text-s: 14px;
 $text-s-2: 15px;
 $text-base: 16px;
+$text-h6-base: 20px;
 $text-l: 25px;
+$text-h1-xs: 30px;
+$text-h1-base: 55px;
+$text-h1-l: 65px;
 // text-weight
 $text-light: 300;
 $text-regular: 400;
@@ -29,6 +33,7 @@ $br-button: 50px;
 //box-shadow
 $bs-card: 0px 20px 20px 0px rgba(0, 0, 0, 0.2);
 $bs-focus: 0 0 4px 0 rgb(0 0 0 / 10%);
+$bs-input: 0 30px 30px -10px rgb(0 0 0 / 20%);
 //border
 $bd: 1px solid #ced4da;
 $bd-button: 2px solid $text-c1-pink;
