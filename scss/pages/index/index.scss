@@ -317,6 +317,11 @@ body.no-scroll {
             @include text($text-h1-base, $text-bold, $text-c1-dark);
           }
         }
+        @media only screen and (max-width: 767.98px) {
+          h1 {
+            @include text($text-h1-s, $text-bold, $text-c1-dark);
+          }
+        }
       }
       .about-right {
         width: 50%;
@@ -891,6 +896,9 @@ body.no-scroll {
           .find-contact {
             .find-two {
               width: 100%;
+              @media only screen and (max-width: 767.98px) {
+                display: inline-block !important;
+              }
               .form-control {
                 transition: $tst-5;
                 &:focus {
@@ -900,10 +908,18 @@ body.no-scroll {
               .input-name {
                 width: 45%;
                 position: relative;
+                @media only screen and (max-width: 767.98px) {
+                  width: 100%;
+                  margin: 0;
+                }
                 .name {
                   @include input($br-button, 157px, 44px, $p-find, $text-xxs);
                   margin-right: 15px;
                   @media only screen and (max-width: 991.98px) {
+                    width: 98%;
+                    margin: 0;
+                  }
+                  @media only screen and (max-width: 767.98px) {
                     width: 100%;
                     margin: 0;
                   }
@@ -931,11 +947,19 @@ body.no-scroll {
               .input-email {
                 width: 55%;
                 position: relative;
+                @media only screen and (max-width: 767.98px) {
+                  width: 100%;
+                  margin: 0;
+                }
                 .email {
                   @include input($br-button, 173px, 44px, $p-find, $text-xxs);
                   @media only screen and (max-width: 991.98px) {
+                    width: 97%;
+                    margin: 0 0 0 10px;
+                  }
+                  @media only screen and (max-width: 767.98px) {
                     width: 100%;
-                    margin: 0;
+                    margin: 14px 0 0 0;
                   }
                 }
                 span {
@@ -953,8 +977,11 @@ body.no-scroll {
                       $text-bold,
                       $text-c1-pink,
                       9px,
-                      17px
+                      26px
                     );
+                  }
+                  @media only screen and (max-width: 767.98px) {
+                    left: 16px;
                   }
                 }
               }
@@ -1084,6 +1111,10 @@ body.no-scroll {
             .send {
               position: relative;
               z-index: 1;
+              @media only screen and (max-width: 767.98px) {
+                width: 100%;
+                text-align: center;
+              }
               @include button(
                 $text-base,
                 $text-semibold,

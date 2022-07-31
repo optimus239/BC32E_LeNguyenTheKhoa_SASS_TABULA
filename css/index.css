@@ -393,6 +393,13 @@ body.no-scroll {
     color: #181818;
   }
 }
+@media only screen and (max-width: 767.98px) {
+  #main .about .container .about-left h1 {
+    font-size: 50px;
+    font-weight: 700;
+    color: #181818;
+  }
+}
 #main .about .container .about-right {
   width: 50%;
   opacity: 0;
@@ -1136,6 +1143,11 @@ body.no-scroll {
 #main .find .container .find-right .findCourse .find-contact .find-two {
   width: 100%;
 }
+@media only screen and (max-width: 767.98px) {
+  #main .find .container .find-right .findCourse .find-contact .find-two {
+    display: inline-block !important;
+  }
+}
 #main .find .container .find-right .findCourse .find-contact .find-two .form-control {
   transition: 0.5s;
 }
@@ -1147,6 +1159,12 @@ body.no-scroll {
   width: 45%;
   position: relative;
 }
+@media only screen and (max-width: 767.98px) {
+  #main .find .container .find-right .findCourse .find-contact .find-two .input-name {
+    width: 100%;
+    margin: 0;
+  }
+}
 #main .find .container .find-right .findCourse .find-contact .find-two .input-name .name {
   border-radius: 50px;
   width: 157px;
@@ -1156,6 +1174,12 @@ body.no-scroll {
   margin-right: 15px;
 }
 @media only screen and (max-width: 991.98px) {
+  #main .find .container .find-right .findCourse .find-contact .find-two .input-name .name {
+    width: 98%;
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 767.98px) {
   #main .find .container .find-right .findCourse .find-contact .find-two .input-name .name {
     width: 100%;
     margin: 0;
@@ -1182,6 +1206,12 @@ body.no-scroll {
   width: 55%;
   position: relative;
 }
+@media only screen and (max-width: 767.98px) {
+  #main .find .container .find-right .findCourse .find-contact .find-two .input-email {
+    width: 100%;
+    margin: 0;
+  }
+}
 #main .find .container .find-right .findCourse .find-contact .find-two .input-email .email {
   border-radius: 50px;
   width: 173px;
@@ -1191,8 +1221,14 @@ body.no-scroll {
 }
 @media only screen and (max-width: 991.98px) {
   #main .find .container .find-right .findCourse .find-contact .find-two .input-email .email {
+    width: 97%;
+    margin: 0 0 0 10px;
+  }
+}
+@media only screen and (max-width: 767.98px) {
+  #main .find .container .find-right .findCourse .find-contact .find-two .input-email .email {
     width: 100%;
-    margin: 0;
+    margin: 14px 0 0 0;
   }
 }
 #main .find .container .find-right .findCourse .find-contact .find-two .input-email span {
@@ -1209,7 +1245,12 @@ body.no-scroll {
     font-weight: 700;
     color: #b61984;
     top: 9px;
-    left: 17px;
+    left: 26px;
+  }
+}
+@media only screen and (max-width: 767.98px) {
+  #main .find .container .find-right .findCourse .find-contact .find-two .input-email span {
+    left: 16px;
   }
 }
 #main .find .container .find-right .findCourse .find-contact .custom-select {
@@ -1352,6 +1393,12 @@ body.no-scroll {
   border: 2px solid #b61984;
   border-radius: 50px;
   margin-top: 65px;
+}
+@media only screen and (max-width: 767.98px) {
+  #main .find .container .find-right .findCourse .find-contact .send {
+    width: 100%;
+    text-align: center;
+  }
 }
 #main .find .container .find-right .findCourse .find-contact .send:hover {
   color: #b61984;
