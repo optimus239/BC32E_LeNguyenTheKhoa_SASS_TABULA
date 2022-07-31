@@ -37,7 +37,7 @@
     <div class="mainPage" id="main">
       <!-- header -->
     <header class="header" id="headerPage">
-      <div class="container">
+      <div class="container" id="container-header">
         <nav class="navbar navbar-expand-lg" id="navbar-header">      
           <a class="navbarLogo" id="logo" href="#"
             ><img src="./img/crest.png" alt=""
@@ -87,11 +87,11 @@
     <!-- about -->
     <section class="about" id="aboutPage">
       <div class="container row">     
-            <div class="about-left col-sm-12 col-md-12 col-lg-6">
+            <div class="about-left col-12 col-sm-12 col-md-12 col-lg-6">
               <h6>ABOUT US</h6>
               <h1>The language teaching experts</h1>
             </div>
-            <div class="about-right col-sm-12 col-md-12 col-lg-6">
+            <div class="about-right col-12 col-sm-12 col-md-12 col-lg-6">
               <img src="./img/hero_team.png" alt="" />
             </div>      
           <div class="bg-top">
@@ -351,7 +351,7 @@
     <!-- sidebar -->
     <div class="sideBar" id="mainSidebar">
       <div class="sideBar-logo">
-        <img src="./img/crest.png" alt="">
+        <a href="#"><img src="./img/crest.png" alt=""></a>
       </div>
       <ul class="side-ul">
         <li class="side-li active">
@@ -428,6 +428,21 @@
     <script>
     new WOW().init();
     </script>
+    <script>
+    var lastScrollTop = 0;
+      $(window).scroll(function(event){
+         var st = $(this).scrollTop();
+         if (st > lastScrollTop){
+            
+           $('.container').addClass('');
+          //  $('.navbarNav').removeClass('animate__animated animate__bounce');
+         } else {
+          //  $('.navbarNav').addClass('animate__animated animate__bounce');
+          //  $('.navbarNav').removeClass('animate__animated animate__bounce');
+         }
+         lastScrollTop = st;
+      });	
+      </script>
     <script src="./index.js"></script>
   </body>
 </html>
