@@ -56,6 +56,7 @@ body {
   width: 100%;
   animation: fadeIn 0.5s;
   transform: translateY(0);
+  transition: all 0.5s;
   background-color: transparent;
 }
 @media only screen and (max-width: 1199.98px) {
@@ -127,9 +128,19 @@ body {
   margin-bottom: 0;
   list-style: none;
 }
+@media only screen and (max-width: 1280px) {
+  #main .header .container .navbar .navbarCollapse .navbarNav {
+    margin-left: 269px;
+  }
+}
 @media only screen and (max-width: 1260px) {
   #main .header .container .navbar .navbarCollapse .navbarNav {
-    margin-left: 200px;
+    margin-left: 240px;
+  }
+}
+@media only screen and (max-width: 1240px) {
+  #main .header .container .navbar .navbarCollapse .navbarNav {
+    margin-left: 210px;
   }
 }
 #main .header .container .navbar .navbarCollapse .navbarNav .navItem {
@@ -164,21 +175,6 @@ body {
 }
 #main .header .container .navbar .navbarCollapse .navbarNav .navItem .navLink.nav-circle .circle:hover::before {
   transform: scale(1.2, 1.2);
-}
-@media only screen and (max-width: 1280px) {
-  #main .header .container .navbar .navbarCollapse .navbarNav.navbarRespon {
-    margin-left: 320px;
-  }
-}
-@media only screen and (max-width: 1260px) {
-  #main .header .container .navbar .navbarCollapse .navbarNav.navbarRespon {
-    margin-left: 300px;
-  }
-}
-@media only screen and (max-width: 1220px) {
-  #main .header .container .navbar .navbarCollapse .navbarNav.navbarRespon {
-    margin-left: 279px;
-  }
 }
 #main .header .container .navbar .navbarCollapse .form-inline {
   overflow: hidden;
@@ -270,6 +266,7 @@ body {
   #main .header .container .navbar .navToggle span {
     display: inline-block;
     width: 27px;
+    padding: 12px;
   }
   #main .header .container .navbar .navToggle span:focus-visible {
     outline: none;
@@ -395,7 +392,9 @@ body {
   width: 100%;
   height: 48px;
   animation: fadeInDown 0.5s;
-  transform: translateY(-86px);
+  animation-fill-mode: forwards;
+  top: -49px;
+  transition: all 0.5s;
   background-color: #fff;
   box-shadow: -1px 11px 8px -8px rgba(0, 0, 0, 0.2);
 }
@@ -473,9 +472,19 @@ body {
   margin-bottom: 0;
   list-style: none;
 }
+@media only screen and (max-width: 1280px) {
+  #main .header-sub .container .navbar .navbarCollapse .navbarNav {
+    margin-left: 320px;
+  }
+}
 @media only screen and (max-width: 1260px) {
   #main .header-sub .container .navbar .navbarCollapse .navbarNav {
-    margin-left: 200px;
+    margin-left: 300px;
+  }
+}
+@media only screen and (max-width: 1220px) {
+  #main .header-sub .container .navbar .navbarCollapse .navbarNav {
+    margin-left: 279px;
   }
 }
 #main .header-sub .container .navbar .navbarCollapse .navbarNav .navItem {
@@ -510,21 +519,6 @@ body {
 }
 #main .header-sub .container .navbar .navbarCollapse .navbarNav .navItem .navLink.nav-circle .circle:hover::before {
   transform: scale(1.2, 1.2);
-}
-@media only screen and (max-width: 1280px) {
-  #main .header-sub .container .navbar .navbarCollapse .navbarNav.navbarRespon {
-    margin-left: 320px;
-  }
-}
-@media only screen and (max-width: 1260px) {
-  #main .header-sub .container .navbar .navbarCollapse .navbarNav.navbarRespon {
-    margin-left: 300px;
-  }
-}
-@media only screen and (max-width: 1220px) {
-  #main .header-sub .container .navbar .navbarCollapse .navbarNav.navbarRespon {
-    margin-left: 279px;
-  }
 }
 #main .header-sub .container .navbar .navbarCollapse .form-inline {
   overflow: hidden;
@@ -617,6 +611,7 @@ body {
   #main .header-sub .container .navbar .navToggle span {
     display: inline-block;
     width: 27px;
+    padding: 12px;
   }
   #main .header-sub .container .navbar .navToggle span:focus-visible {
     outline: none;
@@ -736,8 +731,8 @@ body {
   left: -16%;
   transform: rotate(0);
 }
-#main .header-sub.header-open {
-  transform: translateY(0);
+#main .header.header-close .container .navbar {
+  animation: fadeInDown 0.5s;
 }
 #main .about {
   position: relative;
@@ -1492,6 +1487,13 @@ body {
     margin: 10px 0 0 0;
     width: 482px;
     height: 482px;
+  }
+}
+@media only screen and (max-width: 575.98px) {
+  #main .find .container .find-left .container-img img {
+    margin: 10px 0 0 0;
+    width: 100%;
+    height: auto;
   }
 }
 @media only screen and (max-width: 991.98px) {
@@ -2276,10 +2278,24 @@ body {
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translateY(-86px);
+    top: -48px;
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    top: 0;
+  }
+}
+@keyframes fadeDownUp {
+  0% {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(-86px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }

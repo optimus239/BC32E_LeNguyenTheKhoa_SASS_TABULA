@@ -27,8 +27,8 @@ function scrollFuction() {
     document.body.scrollTop > 300 ||
     document.documentElement.scrollTop > 300
   ) {
-    querySelect("header").className = `header-sub header-open`;
+    querySelect("header").className = `header-sub header-close`;
   } else {
-    querySelect("header").className = `header`;
+    querySelect("header").className = `header header-close`;
   }
 }
